@@ -7,60 +7,53 @@
   <title>Sostenibilità Lavazza – Sintesi 2024</title>
 
   <style>
-    /* imposto font base, colore del testo e sfondo */
+    /* imposto font, colori base e larghezza massima del contenuto */
     body{
       margin:0;
       font-family: Arial, Helvetica, sans-serif;
-      background:#ffffff;   /* sfondo bianco  */
-      color:#0f172a;        /* blu molto scuro per il testo */
-      line-height:1.5;      /* un po' di spazio tra le righe per leggere meglio */
+      background:#ffffff;
+      color:#0f172a;
+      line-height:1.5;
     }
 
-    /* uso il rosso lavazza per richiamare il brand
-       tolgo la sottolineatura perché mi basta il colore per distinguerli */
     a{
       color:#b40020;
       text-decoration:none;
     }
 
-    /* questo container mi serve per migliorare il layout: larghezza, allineamento e tabulazione */
+    /* questo container mi serve per non avere il testo a tutta larghezza */
     .container{
       max-width:1000px;
-      margin:0 auto;   /* centra il blocco rispetto alla pagina */
+      margin:0 auto;
       padding:16px;
     }
 
-    /* intestazione: voglio una fascia che si stacchi dal resto con
-       sfondo azzurrino molto chiaro e riga sotto di separazione */
+    /* intestazione con sfondo leggermente colorato e una riga di separazione */
     header{
       border-bottom:1px solid #e2e8f0;
       background:#f0f4ff;
     }
 
-    /* riga con logo e titolo affiancati
-       uso flex per metterli in orizzontale */
+    /* riga con logo e titolo affiancati */
     .brand{
       display:flex;
-      align-items:center;  /* centro verticalmente logo e testo */
-      gap:10px;            /* spazio tra logo e titolo */
+      align-items:center;
+      gap:10px;
       padding:14px 0;
     }
 
-    /* titolo principale del sito, lo voglio ben visibile ma non enorme
-       uso il blu scuro della palette lavazza */
+    /* titolo principale del sito */
     .brand-title{
       font-weight:bold;
       font-size:22px;
       color:#1e3a8a;
     }
 
-    /* menu di navigazione
-       un po' di spazio sotto per separarlo dalla sezione panoramica */
+    /* menu con i link alle varie sezioni interne della pagina */
     nav{
       margin-bottom:12px;
     }
 
-    /* ogni link del menu è un "bottoncino", padding per area cliccabile decente, bordo arrotondato, sfondo chiaro */
     nav a{
       display:inline-block;
       padding:8px 12px;
@@ -72,16 +65,13 @@
       font-size:14px;
     }
 
-    /* al passaggio del mouse evidenzio il link:
-       cambio bordo, testo e sfondo con il blu principale */
     nav a:hover{
       border-color:#1e3a8a;
       color:#1e3a8a;
       background:#ffffff;
     }
 
-    /* blocco introduttivo (panoramica)
-       sfondo diverso dal bianco, bordo e angoli arrotondati */
+    /* blocco introduttivo (panoramica) con sfondo chiaro e bordi arrotondati */
     .hero{
       margin:24px 0;
       padding:20px;
@@ -98,14 +88,12 @@
       text-align:center;
     }
 
-    /* testo introduttivo in grigio così il blocco non è nero pesante da leggere */
     .hero p{
       color:#4b5563;
       margin-bottom:10px;
     }
 
-    /* stile base dei pulsanti (uso questa classe per il bottone finale del pdf)
-       bordo e sfondo rossi per restare sul colore lavazza */
+    /* stile base dei pulsanti (lo uso solo in fondo per il pdf) */
     .btn{
       padding:10px 14px;
       border-radius:10px;
@@ -116,19 +104,16 @@
       font-weight:bold;
     }
 
-    /* piccola variazione di luminosità al passaggio del mouse */
     .btn:hover{
       filter:brightness(1.05);
     }
 
-    /* ogni sezione ha un po' di spazio sopra e sotto
-       così non sembrano blocchi incollati tra loro */
+    /* ogni sezione della pagina ha un po' di spazio sopra e sotto */
     section{
       padding:10px 0;
     }
 
-    /* titoli delle sezioni (persone, ambiente, ecc.)
-       li evidenzio con una barra laterale colorata */
+    /* titoli delle sezioni (persone, ambiente, ecc.) */
     h2{
       font-size:20px;
       margin:0 0 8px;
@@ -137,108 +122,98 @@
       color:#1e3a8a;
     }
 
-    /* sottotitoli delle card (es. occupazione, decarbonizzazione, ecc.) */
     h3{
       margin-top:0;
       font-size:16px;
     }
 
-    /* contenitore delle card:
-       uso flex + wrap per gestire sia desktop che mobile senza media query */
+    /* contenitore delle card: layout flessibile che si adatta allo spazio */
     .cards{
       display:flex;
-      flex-wrap:wrap;    /* quando non c'è spazio le card vanno sotto */
-      gap:14px;          /* spazio uniforme tra le card */
+      flex-wrap:wrap;    /* quando non c'è spazio le card vanno a capo */
+      gap:14px;
     }
 
-    /* ogni card è un box bianco con bordo leggero e angoli arrotondati */
+    /* ogni card mostra un kpi con il relativo testo */
     .card{
-      flex:1 1 250px;         /* larghezza minima 250px, il resto si adatta */
+      flex:1 1 250px;
       background:#ffffff;
       border:1px solid #e2e8f0;
       border-radius:10px;
       padding:12px;
     }
 
-    /* box del kpi (numero + etichetta + barra)
-       sfondo diverso per staccarlo dal resto del testo nella card */
+    /* box che racchiude il kpi */
     .kpi{
       background:#f8fafc;
-      border:1px dashed #e2e8f0;  /* tratteggiato per differenziarlo dal bordo card */
+      border:1px dashed #e2e8f0;
       border-radius:8px;
       padding:8px;
       margin-bottom:8px;
     }
 
-    /* valore numerico in evidenza
-       font più grande e spesso, colore principale di base blu */
+    /* valore numerico messo in evidenza */
     .kpi-value{
       font-size:18px;
       font-weight:bold;
       color:#1e3a8a;
     }
 
-    /* etichetta del kpi:
-       più piccola e grigia, è una descrizione di supporto al numero */
+    /* descrizione breve del kpi */
     .kpi-label{
       font-size:12px;
       color:#4b5563;
       margin-bottom:6px;
     }
 
-    /* barretta grafica sotto al kpi, solo per dare un colpo d'occhio visivo
-       non è un grafico preciso, è decorativa */
+    /* barretta: la uso solo dove il dato è espresso in percentuale */
     .progress{
       height:8px;
       background:#e2e8f0;
       border-radius:4px;
-      overflow:hidden;   /* la barra interna non esce dai bordi arrotondati */
+      overflow:hidden;
     }
 
-    /* barra colorata che riempie la progress
-       la larghezza la imposto inline con style="width:..." */
     .progress-bar{
       height:8px;
       background:#1e3a8a;
     }
 
-    /* da qui in poi do un tema colore diverso a ogni area
-       mi appoggio alle classi delle sezioni per cambiare solo quella parte */
+    /* colori diversi per le varie aree, copiati dal report in modo semplice */
 
-    /* persone = tonalità calda / marroncina, richiama un po' l'idea di umanità */
+    /* persone = arancio/marroncino */
     .section-persone h2{
-      border-left-color:#a0622a;
-      color:#a0622a;
+      border-left-color:#c75b1e;
+      color:#c75b1e;
     }
     .section-persone .kpi{
-      background:#f8efe6;
-      border-color:#f0d5b2;
+      background:#fbe9dd;
+      border-color:#f1c7aa;
     }
     .section-persone .kpi-value{
-      color:#a0622a;
+      color:#c75b1e;
     }
     .section-persone .progress-bar{
-      background:#c97b34;
+      background:#c75b1e;
     }
 
-    /* crescita responsabile = azzurrino, più legato a numeri e business */
+    /* crescita responsabile = azzurro */
     .section-crescita h2{
-      border-left-color:#1b6fb8;
-      color:#1b6fb8;
+      border-left-color:#1f6fb2;
+      color:#1f6fb2;
     }
     .section-crescita .kpi{
-      background:#e6f3ff;
-      border-color:#c5ddf5;
+      background:#e1f0fb;
+      border-color:#b9d4f1;
     }
     .section-crescita .kpi-value{
-      color:#1b6fb8;
+      color:#1f6fb2;
     }
     .section-crescita .progress-bar{
-      background:#1b6fb8;
+      background:#1f6fb2;
     }
 
-    /* ambiente = verde, scelta abbastanza automatica
-       richiama natura, piante, sostenibilità */
+    /* ambiente = verde */
     .section-ambiente h2{
       border-left-color:#2f7d3b;
       color:#2f7d3b;
@@ -254,41 +229,38 @@
       background:#2f7d3b;
     }
 
-    /* comunità = viola/rosa
-       sposta l’attenzione sul lato sociale e sui progetti sul territorio */
+    /* comunità = giallo/arancio chiaro */
     .section-comunita h2{
-      border-left-color:#b43771;
-      color:#b43771;
+      border-left-color:#c48a1b;
+      color:#c48a1b;
     }
     .section-comunita .kpi{
-      background:#fbe9f2;
-      border-color:#f0c5dd;
+      background:#fff6dd;
+      border-color:#f3dd9c;
     }
     .section-comunita .kpi-value{
-      color:#b43771;
+      color:#c48a1b;
     }
     .section-comunita .progress-bar{
-      background:#b43771;
+      background:#c48a1b;
     }
   </style>
 </head>
 
 <body>
 
-  <!-- intestazione del sito: logo, titolo e menu di navigazione
-       qui presento subito il tema della pagina -->
+  <!-- intestazione del sito: titolo e menu di navigazione -->
   <header>
     <div class="container">
       <div class="brand">
-        <!-- logo locale di lavazza, lo tengo piccolo ma vicino al titolo -->
-        <img src="lavazza-logo.png"
+        <!-- uso il logo locale per richiamare subito il brand -->
+        <img src="Lavazza-logo.png"
              alt="Logo Lavazza"
              style="height:40px; margin-right:10px;">
         <div class="brand-title">Sostenibilità Lavazza – Sintesi 2024</div>
       </div>
 
-      <!-- menu per spostarsi tra le varie sezioni
-           ogni link punta all'id della sezione corrispondente -->
+      <!-- menu per spostarsi rapidamente tra le varie sezioni della pagina -->
       <nav>
         <a href="#panoramica">Panoramica</a>
         <a href="#persone">Persone</a>
@@ -298,8 +270,7 @@
         <a href="#report">Report PDF</a>
       </nav>
 
-      <!-- blocco iniziale con introduzione e immagine
-           qui riassumo l’introduzione del bilancio in forma più breve -->
+      <!-- blocco iniziale con introduzione testuale -->
       <section class="hero" id="panoramica">
         <h1>“A Goal in Every Cup”</h1>
 
@@ -309,21 +280,20 @@
 
         <p>Nato a Torino nel 1895, il Gruppo è cresciuto fino a diventare un protagonista internazionale, mantenendo un approccio fondato su innovazione, qualità e rispetto per persone, ambiente e comunità. Da questa visione nasce l’impegno a “awaken a better world every morning”.</p>
 
-        <!-- immagine della tazzina, così a colpo d’occhio è chiaro il prodotto al centro -->
-        <img src="lavazza-cup.jpg"
-             alt="Tazzina di caffè"
+        <!-- immagine della tazzina per rendere meno astratta l'introduzione -->
+        <img src="Lavazza-cup.jpg"
+             alt="Tazzina di caffè Lavazza"
              style="width:100%; border-radius:10px; margin:14px 0;">
 
-        <!-- qui non metto pulsanti, il link al pdf è solo nella sezione finale -->
+        <!-- niente pulsante qui: il link al pdf lo metto solo in fondo -->
       </section>
     </div>
   </header>
 
-  <!-- da qui in poi ci sono i blocchi con i dati sintetici
-       ogni area (persone, crescita, ambiente, comunità) ha tre kpi principali -->
+  <!-- qui raccolgo tutte le sezioni con i dati sintetici -->
   <main class="container">
 
-    <!-- sezione dedicata alle persone, tema colori caldi/marroncini -->
+    <!-- sezione dedicata alle persone -->
     <section id="persone" class="section-persone">
       <h2>Persone</h2>
       <div class="cards">
@@ -333,9 +303,7 @@
           <div class="kpi">
             <div class="kpi-value">5.806</div>
             <div class="kpi-label">dipendenti del Gruppo</div>
-            <div class="progress">
-              <div class="progress-bar" style="width:70%;"></div>
-            </div>
+            <!-- nessuna barra qui: è un numero assoluto -->
           </div>
           <p>Questo dato riassume le dimensioni del Gruppo e introduce il tema delle persone come risorsa centrale dell’attività aziendale.</p>
         </div>
@@ -345,6 +313,7 @@
           <div class="kpi">
             <div class="kpi-value">+97%</div>
             <div class="kpi-label">dipendenti a tempo indeterminato</div>
+            <!-- qui la barretta ha senso: rappresenta proprio la percentuale -->
             <div class="progress">
               <div class="progress-bar" style="width:97%;"></div>
             </div>
@@ -353,13 +322,11 @@
         </div>
 
         <div class="card">
-          <h3>Formazione e D&amp;I</h3>
+          <h3>Formazione</h3>
           <div class="kpi">
             <div class="kpi-value">11,9</div>
             <div class="kpi-label">ore di formazione pro-capite</div>
-            <div class="progress">
-              <div class="progress-bar" style="width:60%;"></div>
-            </div>
+            <!-- anche qui lascio solo il numero, non è una percentuale -->
           </div>
           <p>Nel 2024 sono state erogate oltre 4.000 ore di formazione dedicate a diversità, inclusione e sostenibilità, anche tramite la Sustainability Academy e l’Ambassador Programme.</p>
         </div>
@@ -367,7 +334,7 @@
       </div>
     </section>
 
-    <!-- sezione sulla crescita responsabile, tema azzurro legato ai numeri -->
+    <!-- sezione sulla crescita responsabile -->
     <section id="governance" class="section-crescita">
       <h2>Crescita responsabile</h2>
       <div class="cards">
@@ -377,9 +344,7 @@
           <div class="kpi">
             <div class="kpi-value">€ 3,3 mld</div>
             <div class="kpi-label">di valore economico generato nel 2024</div>
-            <div class="progress">
-              <div class="progress-bar" style="width:90%;"></div>
-            </div>
+            <!-- qui è un dato economico totale, niente barra -->
           </div>
           <p>Il Gruppo collega la crescita economica a una gestione responsabile del business, integrando i temi di sostenibilità nelle decisioni strategiche.</p>
         </div>
@@ -411,7 +376,7 @@
       </div>
     </section>
 
-    <!-- sezione dedicata all'ambiente, tema verde -->
+    <!-- sezione dedicata all'ambiente -->
     <section id="ambiente" class="section-ambiente">
       <h2>Ambiente</h2>
       <div class="cards">
@@ -433,9 +398,7 @@
           <div class="kpi">
             <div class="kpi-value">−9%</div>
             <div class="kpi-label">emissioni di CO₂eq rispetto al 2023</div>
-            <div class="progress">
-              <div class="progress-bar" style="width:45%;"></div>
-            </div>
+            <!-- qui il dato è già chiaro da solo, eviterei una barra "al 9%" che può confondere -->
           </div>
           <p>La riduzione delle emissioni rispetto all’anno precedente deriva da interventi di efficientamento energetico e da azioni mirate lungo la catena del valore.</p>
         </div>
@@ -455,7 +418,7 @@
       </div>
     </section>
 
-    <!-- sezione dedicata alle comunità locali e ai progetti sociali, tema viola/rosa -->
+    <!-- sezione dedicata alle comunità locali e ai progetti sociali -->
     <section id="comunita" class="section-comunita">
       <h2>Comunità</h2>
       <div class="cards">
@@ -465,9 +428,7 @@
           <div class="kpi">
             <div class="kpi-value">5.500</div>
             <div class="kpi-label">persone coinvolte nei progetti locali</div>
-            <div class="progress">
-              <div class="progress-bar" style="width:80%;"></div>
-            </div>
+            <!-- dato assoluto, niente barra -->
           </div>
           <p>Il programma di Community Care è esteso a livello globale e attivo in 6 Paesi, con 8 progetti in Italia realizzati insieme a istituzioni e organizzazioni non governative.</p>
         </div>
@@ -477,9 +438,6 @@
           <div class="kpi">
             <div class="kpi-value">+160</div>
             <div class="kpi-label">partecipanti al programma di volontariato</div>
-            <div class="progress">
-              <div class="progress-bar" style="width:65%;"></div>
-            </div>
           </div>
           <p>Il Volunteer Program, rivolto ai dipendenti degli stabilimenti, ha totalizzato oltre 750 ore di attività e coinvolto 15 associazioni locali.</p>
         </div>
@@ -489,9 +447,6 @@
           <div class="kpi">
             <div class="kpi-value">137.000+</div>
             <div class="kpi-label">persone raggiunte dai progetti</div>
-            <div class="progress">
-              <div class="progress-bar" style="width:90%;"></div>
-            </div>
           </div>
           <p>La Fondazione promuove 29 progetti di agricoltura sostenibile e inclusione sociale in 18 Paesi produttori di caffè, distribuiti su 3 continenti, con anche il programma A Cup of Learning che ha formato oltre 700 giovani in 20 Paesi.</p>
         </div>
@@ -499,16 +454,14 @@
       </div>
     </section>
 
-    <!-- immagine della sede lavazza
-         la uso per chiudere la parte dei dati con qualcosa di visivo legato all’azienda -->
+    <!-- immagine della sede Lavazza per chiudere la parte visuale dei dati -->
     <section>
-      <img src="lavazza-hq.png"
+      <img src="Lavazza-hq.png"
            alt="Sede del Lavazza Group"
            style="width:100%; border-radius:12px; margin:20px 0;">
     </section>
 
-    <!-- sezione finale con il link reale al bilancio di sostenibilità 2024
-         qui il docente può testare direttamente il pulsante verso il pdf ufficiale -->
+    <!-- sezione finale con il link reale al Bilancio di Sostenibilità 2024 -->
     <section id="report">
       <h2>Report di sostenibilità</h2>
       <div class="card">
