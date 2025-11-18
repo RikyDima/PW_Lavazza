@@ -27,7 +27,7 @@
     .container{
       max-width:1000px;
       margin:0 auto;   /* centra il blocco rispetto alla pagina */
-      padding:16px;
+      padding:16px;    /* lascia un po di aria ai bordi */
     }
 
     /* intestazione: voglio una fascia che si stacchi dal resto con
@@ -146,7 +146,7 @@
     /* contenitore delle card:
        uso flex + wrap per gestire sia desktop che mobile senza media query */
     .cards{
-      display:flex;
+      display:flex;      /* quando posso le tengo sulla stessa riga */
       flex-wrap:wrap;    /* quando non c'è spazio le card vanno sotto */
       gap:14px;          /* spazio uniforme tra le card */
     }
