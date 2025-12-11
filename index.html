@@ -4,8 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>SOSTENIBILITÀ LAVAZZA – SINTESI 2024</title>
+  <title>SOSTENIBILITA' LAVAZZA – SINTESI 2024</title>
 
+  <!-- tengo HTML e CSS in un unico file così è più semplice da gestire e da spiegare nel project work -->
   <style>
   /* stile base della pagina:
      margini azzerati, font Calibri come principale, colore  testo e sfondo */
@@ -23,21 +24,24 @@
     text-decoration:none;
   }
 
-  /* uso un container centrale per non far sbordare il contenuto */
+  /* uso un container centrale per non far sbordare il contenuto
+     e avere una colonna “leggibile” anche su schermi larghi */
   .container{
     max-width:1100px;
-     margin:0 auto;   /* centra il blocco rispetto alla pagina */
-     padding:16px;    /* lascia un po di aria ai bordi */
+    margin:0 auto;   /* centra il blocco rispetto alla pagina */
+    padding:16px;    /* lascia un po di aria ai bordi */
   }
 
-  /* intestazione: con immagine di sfondo dei campi di coltivazione */
+  /* intestazione: con immagine di sfondo dei campi di coltivazione
+     richiama visivamente il tema agricolo del caffè */
   header{
     border-bottom:1px solid #e2e8f0;
-    background:#f0f4ff url('sfondo5.png') no-repeat center top;
+    background:#f0f4ff url('Sfondo5.png') no-repeat center top;
     background-size:cover;
   }
 
-  /* blocco con logo Lavazza Group e titolo centrato impaginati in colonna */
+  /* blocco con logo Lavazza Group e titolo centrato impaginati in colonna
+     così su mobile resta tutto leggibile senza complicarmi il layout */
   .brand{
     display:flex;
     flex-direction:column;
@@ -50,26 +54,27 @@
   .brand img{
     max-width:400px;
     width:100%;
-    height:auto;
+    height:auto; /* così il logo mantiene le proporzioni anche se cambio la larghezza */
   }
 
   .brand-title{
     font-weight:bold;
     font-size:48px;
     color:#ffffff;
+    /* tengo il titolo molto visibile perché è la prima cosa che chi apre la pagina vede */
   }
 
- /* menu di navigazione con i link alle varie sezioni */
+  /* menu di navigazione con i link alle varie sezioni */
   nav{
     margin-bottom:12px;
     display:flex;
-    flex-wrap:wrap;
+    flex-wrap:wrap;           /* se lo spazio non basta, i pulsanti vanno a capo da soli */
     justify-content:space-between;
     gap:8px;
   }
 
   nav a{
-    flex:1 1 auto;
+    flex:1 1 auto;            /* tutti i link si allargano in modo abbastanza uniforme */
     text-align:center;
     display:inline-block;
     padding:8px 12px;
@@ -80,15 +85,16 @@
     color:#1f2933;
   }
   
-    /* al passaggio del mouse evidenzio il link:
-       cambio bordo, testo e sfondo con il blu principale */
+  /* al passaggio del mouse evidenzio il link:
+     cambio bordo, testo e sfondo con il blu principale */
   nav a:hover{
     border-color:#1e3a8a;
     color:#1e3a8a;
     background:#ffffff;
   }
 
-  /* riquadro introduttivo con il claim e il testo panoramico, angoli arrotondati */
+  /* riquadro introduttivo con il claim e il testo panoramico, angoli arrotondati
+     qui spiego in poche righe il senso della pagina e della strategia */
   .hero{
     margin:24px 0;
     padding:20px;
@@ -104,6 +110,7 @@
     color:#1e3a8a;
     text-align:center;
   }
+
   /* testo introduttivo in grigio, esteticamente più piacevole del nero */
   .hero p{
     color:#4b5563;
@@ -114,7 +121,7 @@
      (SDG prioritari, Tool Goal e Goal Zero) */
   .goal-strategy{
     margin:40px auto 8px;
-    max-width:780px;
+    max-width:780px; /* lo tengo più stretto del container per non allargare troppo le icone */
   }
 
   .goal-strategy-title{
@@ -125,11 +132,12 @@
     color:#1e3a8a;
   }
 
-  /* riga con i 3 blocchi: SDG, Tool Goal, Goal Zero */
+  /* riga con i 3 blocchi: SDG, Tool Goal, Goal Zero
+     la gestione è semplice: con flex li centro e se serve vanno a capo */
   .goal-icons-row{
     margin-top:32px;
     display:flex;
-    flex-wrap:wrap;
+    flex-wrap:wrap;           /* su schermi piccoli i blocchi scendono sotto in automatico */
     justify-content:center;
     gap:24px;
   }
@@ -138,7 +146,7 @@
   .goal-icon-block{
     text-align:center;
     font-size:15px;
-    flex:0 1 210px;
+    flex:0 1 210px;          /* blocco di larghezza media, così non resta troppo largo */
   }
 
   .goal-icon-block strong{
@@ -159,13 +167,14 @@
     display:grid;
     grid-template-columns:repeat(2, auto);
     gap:10px 14px;
-    justify-content:center;
+    justify-content:center;   /* centro la griglia dentro il blocco SDG */
   }
 
   .goal-sdg-grid img{
     width:70px;
     height:auto;
-    display:block;
+    display:block;            /* ogni icona occupa la sua riga/colonna senza testi accanto */
+    /* tutte le icone SDG hanno la stessa dimensione per avere un colpo d’occhio ordinato */
   }
 
   /* sezione con i valori del Gruppo (icone + testi brevi) */
@@ -183,14 +192,14 @@
     color:#1e3a8a;
     border-left:none;
     padding-left:0;
-    text-align:center;
+    text-align:center; /* qui il titolo dei valori è centrato, diverso dagli altri h2 */
   }
 
   .values-row{
     display:flex;
     flex-wrap:wrap;
     gap:20px;
-    justify-content:center;
+    justify-content:center; /* distribuisco le 4 card dei valori in modo uniforme */
   }
 
   .value-item{
@@ -218,12 +227,14 @@
     color:#4b5563;
   }
 
-  /* impostazioni generali per le sezioni della pagina */
+  /* impostazioni generali per le sezioni della pagina
+     in questo modo ogni blocco ha un po' di respiro sopra e sotto */
   section{
     padding:10px 0;
   }
 
-  /* titoli principali delle sezioni (Persone, Ambiente, ecc.) */
+  /* titoli principali delle sezioni (Persone, Ambiente, ecc.)
+     la barra a sinistra aiuta a capire il cambio di argomento */
   h2{
     font-size:20px;
     margin:0 0 8px;
@@ -254,10 +265,11 @@
     filter:brightness(1.05);
   }
 
-  /* contenitore delle card (kpi) nelle varie sezioni */
+  /* contenitore delle card (kpi) nelle varie sezioni
+     uso flex per non dover gestire colonne fisse: si adatta da solo */
   .cards{
     display:flex;
-    flex-wrap:wrap;
+    flex-wrap:wrap;   /* quando finisce lo spazio le card vanno semplicemente sulla riga sotto */
     gap:14px;
   }
 
@@ -279,8 +291,7 @@
     margin-bottom:8px;
   }
 
-  
-    /* valore numerico in evidenza */
+  /* valore numerico in evidenza */
   .kpi-value{
     font-size:18px;
     font-weight:bold;
@@ -302,16 +313,17 @@
     overflow:hidden;
   }
 
- /* barra colorata che riempie la progress */
+  /* barra colorata che riempie la progress */
   .progress-bar{
     height:8px;
     background:#1e3a8a;
   }
 
-  /* riga con titolo di sezione e icone SDG affiancate */
+  /* riga con titolo di sezione e icone SDG affiancate
+     qui faccio capire subito a quali obiettivi ONU si collega ogni blocco */
   .section-heading{
     display:flex;
-    align-items:center;
+    align-items:center; /* centro verticalmente il testo e le icone SDG */
     gap:8px;
     margin:0 0 10px;
   }
@@ -404,7 +416,8 @@
     background:#facc15;
   }
 
-  /* immagine con i brand Lavazza in fondo alla pagina */
+  /* immagine con i brand Lavazza in fondo alla pagina
+     mi serve per chiudere il sito ricordando tutte le marche del Gruppo */
   .brands-strip{
     width:100%;
     max-width:320px;
@@ -442,12 +455,12 @@
         <h1>“A Goal in Every Cup”</h1>
 
         <p>Lavazza opera in una delle filiere agricole più ampie e complesse al mondo, dove la produzione del caffè dipende dal lavoro di circa 25 milioni di piccoli produttori lungo la fascia equatoriale. Alla base ci sono soprattutto aziende familiari di piccole dimensioni, che lavorano in contesti spesso esposti agli effetti della crisi climatica e alle oscillazioni dei prezzi. Ogni fase, dalla coltivazione alla distribuzione, richiede competenze specifiche e un’attenzione costante alla qualità.</p>
-
         <p>Nel mondo vengono consumate ogni giorno circa 3,1 miliardi di tazzine di caffè. Non è solo un’abitudine radicata in molti Paesi, ma un fenomeno che muove intere filiere e coinvolge milioni di persone. Questo dato rende bene l’idea del peso culturale ed economico del caffè e della responsabilità che ricade sui principali torrefattori rispetto alle scelte che compiono lungo la catena del valore.</p>
-
         <p>Nato a Torino nel 1895, il Gruppo è cresciuto da impresa familiare a realtà internazionale, presente in oltre 140 Paesi con stabilimenti produttivi in Italia, Francia, Regno Unito, Stati Uniti e Canada. Nel tempo sono cambiati mercati e tecnologie, ma è rimasto centrale l’obiettivo di unire qualità del prodotto, innovazione e rispetto per le persone, l’ambiente e le comunità in cui l’azienda è presente. Questo approccio è riassunto nello scopo “Awakening a better world every morning”.</p>
+        <p>Su questa base è stata costruita la strategia di sostenibilità “A Goal in Every Cup”, che mette in relazione il caffè con gli Obiettivi di sviluppo sostenibile (SDG – Sustainable Development Goals) delle Nazioni Unite. Nel lavoro di analisi sono stati messi soprattutto al centro quattro temi: l’uguaglianza di genere, il lavoro dignitoso e la crescita economica, il consumo e la produzione responsabili e l’azione per il clima. In altre parole, l’attenzione si concentra su ciò che succede alle persone nella filiera, su come viene creato il valore, su come si producono e si consumano i prodotti e su come si affronta il cambiamento climatico; questi temi corrispondono agli SDG 5, 8, 12 e 13 dell’Agenda 2030. A questi si aggiunge l’SDG 17 “Partnership per gli obiettivi”, usato come “Tool Goal”, cioè come base per costruire progetti e iniziative in collaborazione con altri soggetti. Accanto a questi elementi è stato sviluppato “Goal Zero”, un percorso di sensibilizzazione dedicato ai Global Goals, pensato per far conoscere meglio l’Agenda 2030 e per individuare, insieme agli stakeholder interni ed esterni, quali obiettivi risultano più rilevanti per il Gruppo. Questa pagina raccoglie alcuni numeri chiave del 2024 su persone, crescita responsabile, ambiente e comunità locali e vuole essere un primo passaggio verso il Bilancio di Sostenibilità completo.</p>
 
-        <p>Da qui nasce la strategia di sostenibilità “A Goal in Every Cup”: l’idea è che ogni tazzina sia collegata a obiettivi concreti di sviluppo sostenibile, attraverso quattro SDG considerati prioritari, un percorso di formazione interna dedicato (Tool Goal) e il programma Goal Zero, pensato per diffondere l’Agenda 2030 all’interno del Gruppo. Questa pagina raccoglie alcuni numeri chiave del 2024 su persone, crescita responsabile, ambiente e comunità locali, come porta di ingresso al Bilancio di Sostenibilità completo.</p>
+
+
 
         <!-- breve blocco riassuntivo sulla strategia e sugli strumenti usati -->
         <div class="goal-strategy">
@@ -519,7 +532,7 @@
   <!-- blocchi con i kpi per ciascuna area del bilancio -->
   <main>
 
-    <!-- sezione dedicata alle persone -->
+    <!-- sezione dedicata alle persone: qui riassumo i dati chiave sul lavoro nel Gruppo -->
     <section id="persone" class="section-persone">
       <div class="container">
         <div class="section-heading">
@@ -563,7 +576,7 @@
       </div>
     </section>
 
-    <!-- sezione sulla crescita responsabile -->
+    <!-- sezione sulla crescita responsabile: collego numeri economici e sostenibilità -->
     <section id="governance" class="section-crescita">
       <div class="container">
         <div class="section-heading">
@@ -610,7 +623,7 @@
       </div>
     </section>
 
-    <!-- sezione dedicata all'ambiente -->
+    <!-- sezione dedicata all'ambiente: energie rinnovabili, emissioni e uso delle risorse -->
     <section id="ambiente" class="section-ambiente">
       <div class="container">
         <div class="section-heading">
@@ -661,7 +674,7 @@
       </div>
     </section>
 
-    <!-- sezione dedicata alle comunità locali -->
+    <!-- sezione dedicata alle comunità locali: progetti sul territorio e Fondazione -->
     <section id="comunita" class="section-comunita">
       <div class="container">
         <div class="section-heading">
@@ -715,7 +728,7 @@
             </a>
           </p>
 
-    <!-- immagine di chiusura dei brands Lavazza -->
+          <!-- immagine di chiusura dei brands Lavazza -->
           <img src="lavazza-brands.png"
                alt="Brand del Lavazza Group"
                class="brands-strip">
@@ -727,4 +740,3 @@
 
 </body>
 </html>
-
