@@ -4,427 +4,479 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>SOSTENIBILITA' LAVAZZA – SINTESI 2024</title>
+  <title>SOSTENIBILITÀ LAVAZZA – SINTESI 2024</title>
 
   <!-- tengo HTML e CSS in un unico file così è più semplice da gestire e da spiegare nel project work -->
   <style>
-  /* stile base della pagina:
-     margini azzerati, font Calibri come principale, colore  testo e sfondo */
-  body{
-    margin:0;
-    font-family: "Calibri", Arial, sans-serif;
-    background:#ffffff;
-    color:#0f172a;
-    line-height:1.5; /* un po' di spazio tra le righe per leggere meglio */
-  }
 
-  /* link in rosso Lavazza per richiamare il brand */
-  a{
-    color:#b40020;
-    text-decoration:none;
-  }
+    /* scroll un po più morbido quando clicco sul menu */
+    html{
+      scroll-behavior:smooth;
+   
 
-  /* uso un container centrale per non far sbordare il contenuto
-     e avere una colonna “leggibile” anche su schermi larghi */
-  .container{
-    max-width:1100px;
-    margin:0 auto;   /* centra il blocco rispetto alla pagina */
-    padding:16px;    /* lascia un po di aria ai bordi */
-  }
+    }
 
-  /* intestazione: con immagine di sfondo dei campi di coltivazione
-     richiama visivamente il tema agricolo del caffè */
-  header{
-    border-bottom:1px solid #e2e8f0;
-    background:#f0f4ff url('Sfondo5.png') no-repeat center top;
-    background-size:cover;
-  }
+    /* stile base della pagina:
+       margini azzerati, font Calibri come principale, colore  testo e sfondo */
+    body{
+      margin:0;
+      font-family: "Calibri", Arial, sans-serif;
+      font-size:16px;
+      background:#ffffff;
+      color:#0f172a;
+      line-height:1.5; /* un po' di spazio tra le righe per leggere meglio */
+    }
 
-  /* blocco con logo Lavazza Group e titolo centrato impaginati in colonna
-     così su mobile resta tutto leggibile senza complicarmi il layout */
-  .brand{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:10px;
-    padding:18px 0 10px;
-    text-align:center;
-  }
+    /* link in rosso Lavazza per richiamare il brand */
+    a{
+      color:#b40020;
+      text-decoration:none;
+    }
 
-  .brand img{
-    max-width:400px;
-    width:100%;
-    height:auto; /* così il logo mantiene le proporzioni anche se cambio la larghezza */
-  }
+    /* link "in linea" che voglio evidenziare un po' di più nel testo */
+    .inline-link{
+      text-decoration:underline;
+    }
 
-  .brand-title{
-    font-weight:bold;
-    font-size:48px;
-    color:#ffffff;
-    /* tengo il titolo molto visibile perché è la prima cosa che chi apre la pagina vede */
-  }
+    .inline-link:hover{
+      text-decoration:none;
+    }
 
-  /* menu di navigazione con i link alle varie sezioni */
-  nav{
-    margin-bottom:12px;
-    display:flex;
-    flex-wrap:wrap;           /* se lo spazio non basta, i pulsanti vanno a capo da soli */
-    justify-content:space-between;
-    gap:8px;
-  }
+    /* uso un container centrale per non far sbordare il contenuto
+       e avere una colonna “leggibile” anche su schermi larghi */
+    .container{
+      max-width:1100px;
+      margin:0 auto;   /* centra il blocco rispetto alla pagina */
+      padding:16px;    /* lascia un po di aria ai bordi */
+    }
 
-  nav a{
-    flex:1 1 auto;            /* tutti i link si allargano in modo abbastanza uniforme */
-    text-align:center;
-    display:inline-block;
-    padding:8px 12px;
-    border-radius:8px;
-    border:1px solid #e2e8f0;
-    background:#ffffff;
-    font-size:14px;
-    color:#1f2933;
-  }
-  
-  /* al passaggio del mouse evidenzio il link:
-     cambio bordo, testo e sfondo con il blu principale */
-  nav a:hover{
-    border-color:#1e3a8a;
-    color:#1e3a8a;
-    background:#ffffff;
-  }
+    /* intestazione: con immagine di sfondo dei campi di coltivazione
+       richiama visivamente il tema agricolo del caffè */
+    header{
+      border-bottom:1px solid #e2e8f0;
+      background:#f0f4ff url('Sfondo5.png') no-repeat center top;
+      background-size:cover;
+    }
 
-  /* riquadro introduttivo con il claim e il testo panoramico, angoli arrotondati
-     qui spiego in poche righe il senso della pagina e della strategia */
-  .hero{
-    margin:24px 0;
-    padding:20px;
-    border-radius:16px;
-    background:#ffffff;
-    border:1px solid #e2e8f0;
-  }
+    /* blocco con logo Lavazza Group e titolo centrato impaginati in colonna
+       così su mobile resta tutto leggibile senza complicarmi il layout */
+    .brand{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:10px;
+      padding:18px 0 10px;
+      text-align:center;
+    }
 
-  /* claim principale centrato (slogan di Lavazza) */
-  .hero h1{
-    margin-top:0;
-    font-size:24px;
-    color:#1e3a8a;
-    text-align:center;
-  }
+    .brand img{
+      max-width:400px;
+      width:100%;
+      height:auto; /* così il logo mantiene le proporzioni anche se cambio la larghezza */
+    }
 
-  /* testo introduttivo in grigio, esteticamente più piacevole del nero */
-  .hero p{
-    color:#4b5563;
-    margin-bottom:10px;
-  }
+    .brand-title{
+      font-weight:bold;
+      font-size:48px;
+      color:#ffffff;
+      /* tengo il titolo molto visibile perché è la prima cosa che chi apre la pagina vede */
+    }
 
-  /* piccolo blocco con la strategia di sostenibilità e le icone
-     (SDG prioritari, Tool Goal e Goal Zero) */
-  .goal-strategy{
-    margin:40px auto 8px;
-    max-width:780px; /* lo tengo più stretto del container per non allargare troppo le icone */
-  }
+    /* menu di navigazione con i link alle varie sezioni */
+    nav{
+      margin-bottom:12px;
+      display:flex;
+      flex-wrap:wrap;           /* se lo spazio non basta, i pulsanti vanno a capo da soli */
+      justify-content:space-between;
+      gap:8px;
+    }
 
-  .goal-strategy-title{
-    font-size:16px;
-    font-weight:bold;
-    text-align:center;
-    margin-bottom:10px;
-    color:#1e3a8a;
-  }
+    nav a{
+      flex:1 1 auto;            /* tutti i link si allargano in modo abbastanza uniforme */
+      text-align:center;
+      display:inline-block;
+      padding:8px 12px;
+      border-radius:8px;
+      border:1px solid #e2e8f0;
+      background:#ffffff;
+      font-size:18px;
+      color:#1f2933;
+    }
+    
+    /* al passaggio del mouse evidenzio il link:
+       cambio bordo, testo e sfondo con il blu principale */
+    nav a:hover{
+      border-color:#1e3a8a;
+      color:#1e3a8a;
+      background:#ffffff;
+    }
 
-  /* riga con i 3 blocchi: SDG, Tool Goal, Goal Zero
-     la gestione è semplice: con flex li centro e se serve vanno a capo */
-  .goal-icons-row{
-    margin-top:32px;
-    display:flex;
-    flex-wrap:wrap;           /* su schermi piccoli i blocchi scendono sotto in automatico */
-    justify-content:center;
-    gap:24px;
-  }
+    /* riquadro introduttivo con il claim e il testo panoramico, angoli arrotondati
+       qui spiego in poche righe il senso della pagina e della strategia */
+    .hero{
+      margin:24px 0;
+      padding:20px;
+      border-radius:16px;
+      background:#ffffff;
+      border:1px solid #e2e8f0;
+    }
 
-  /* singolo blocco con titolo e icone */
-  .goal-icon-block{
-    text-align:center;
-    font-size:15px;
-    flex:0 1 210px;          /* blocco di larghezza media, così non resta troppo largo */
-  }
+    /* claim principale centrato (slogan di Lavazza) */
+    .hero h1{
+      margin-top:0;
+      font-size:24px;
+      color:#1e3a8a;
+      text-align:center;
+    }
 
-  .goal-icon-block strong{
-    display:block;
-    margin-bottom:10px;
-  }
+    /* testo introduttivo in grigio, esteticamente più piacevole del nero */
+    .hero p{
+      color:#4b5563;
+      margin-bottom:10px;
+    }
 
-  /* icone singole per Tool Goal e Goal Zero */
-  .goal-icon-block > img{
-    display:block;
-    max-width:70px;
-    height:auto;
-    margin:0 auto;
-  }
+    /* piccolo blocco con la strategia di sostenibilità e le icone
+       (SDG prioritari, Tool Goal e Goal Zero) */
+    .goal-strategy{
+      margin:40px auto 8px;
+      max-width:780px; /* lo tengo più stretto del container per non allargare troppo le icone */
+    }
 
-  /* griglia 2x2 per i 4 SDG prioritari */
-  .goal-sdg-grid{
-    display:grid;
-    grid-template-columns:repeat(2, auto);
-    gap:10px 14px;
-    justify-content:center;   /* centro la griglia dentro il blocco SDG */
-  }
+    /* stile del link nel titoletto "La strategia di sostenibilità" */
+    .goal-strategy-title{
+      display:flex;
+      justify-content:center;
+      margin:0 auto 10px;
+    }
 
-  .goal-sdg-grid img{
-    width:70px;
-    height:auto;
-    display:block;            /* ogni icona occupa la sua riga/colonna senza testi accanto */
-    /* tutte le icone SDG hanno la stessa dimensione per avere un colpo d’occhio ordinato */
-  }
+    /* riga con i 3 blocchi: SDG, Tool Goal, Goal Zero
+       la gestione è semplice: con flex li centro e se serve vanno a capo */
+    .goal-icons-row{
+      margin-top:32px;
+      display:flex;
+      flex-wrap:wrap;           /* su schermi piccoli i blocchi scendono sotto in automatico */
+      justify-content:center;
+      gap:24px;
+    }
 
-  /* sezione con i valori del Gruppo (icone + testi brevi) */
-  .values{
-    margin:4px 0 0;
-    padding:20px;
-    background:#ffffff;
-    border-radius:12px;
-    border:1px solid #e2e8f0;
-  }
+    /* singolo blocco con titolo e icone */
+    .goal-icon-block{
+      text-align:center;
+      font-size:17px;
+      flex:0 1 210px;          /* blocco di larghezza media, così non resta troppo largo */
+    }
 
-  .values h2{
-    font-size:20px;
-    margin:0 0 16px;
-    color:#1e3a8a;
-    border-left:none;
-    padding-left:0;
-    text-align:center; /* qui il titolo dei valori è centrato, diverso dagli altri h2 */
-  }
+    .goal-icon-block strong{
+      display:block;
+      margin-bottom:10px;
+    }
 
-  .values-row{
-    display:flex;
-    flex-wrap:wrap;
-    gap:20px;
-    justify-content:center; /* distribuisco le 4 card dei valori in modo uniforme */
-  }
+    /* icone singole per Tool Goal e Goal Zero */
+    .goal-icon-block > img{
+      display:block;
+      max-width:70px;
+      height:auto;
+      margin:0 auto;
+    }
 
-  .value-item{
-    flex:1 1 220px;
-    max-width:230px;
-  }
+    /* griglia 2x2 per i 4 SDG prioritari */
+    .goal-sdg-grid{
+      display:grid;
+      grid-template-columns:repeat(2, auto);
+      gap:10px 14px;
+      justify-content:center;   /* centro la griglia dentro il blocco SDG */
+    }
 
-  .value-item img{
-    max-width:80px;
-    height:auto;
-    display:block;
-    margin:0 auto 8px;
-  }
+    .goal-sdg-grid img{
+      width:70px;
+      height:auto;
+      display:block;            /* ogni icona occupa la sua riga/colonna senza testi accanto */
+      /* tutte le icone SDG hanno la stessa dimensione per avere un colpo d’occhio ordinato */
+    }
 
-  .value-item h3{
-    margin:4px 0 6px;
-    font-size:16px;
-    color:#1e3a8a;
-    text-align:center;
-  }
+    /* sezione con i valori del Gruppo (icone + testi brevi) */
+    .values{
+      margin:4px 0 0;
+      padding:20px;
+      background:#ffffff;
+      border-radius:12px;
+      border:1px solid #e2e8f0;
+    }
 
-  .value-item p{
-    font-size:13px;
-    margin:2px 0;
-    color:#4b5563;
-  }
+    .values h2{
+      font-size:20px;
+      margin:0 0 16px;
+      color:#1e3a8a;
+      border-left:none;
+      padding-left:0;
+      text-align:center; /* qui il titolo dei valori è centrato, diverso dagli altri h2 */
+    }
 
-  /* impostazioni generali per le sezioni della pagina
-     in questo modo ogni blocco ha un po' di respiro sopra e sotto */
-  section{
-    padding:10px 0;
-  }
+    .values-title{
+      display:flex;
+      justify-content:center;
+    }
 
-  /* titoli principali delle sezioni (Persone, Ambiente, ecc.)
-     la barra a sinistra aiuta a capire il cambio di argomento */
-  h2{
-    font-size:20px;
-    margin:0 0 8px;
-    padding-left:8px;
-    border-left:5px solid #1e3a8a;
-    color:#1e3a8a;
-  }
+    .values-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:20px;
+      justify-content:center; /* distribuisco le 4 card dei valori in modo uniforme */
+    }
 
-  /* titoli delle card interne */
-  h3{
-    margin-top:0;
-    font-size:16px;
-  }
+    .value-item{
+      flex:1 1 220px;
+      max-width:230px;
+    }
 
-  /* stile del pulsante finale per aprire il pdf del bilancio, bordo e sfondo rossi per restare sul colore lavazza */
-  .btn{
-    padding:10px 14px;
-    border-radius:10px;
-    border:1px solid #b40020;
-    background:#b40020;
-    color:#ffffff;
-    font-size:14px;
-    font-weight:bold;
-  }
+    .value-item img{
+      max-width:80px;
+      height:auto;
+      display:block;
+      margin:0 auto 8px;
+    }
 
-  /* piccola variazione di luminosità al passaggio del mouse */
-  .btn:hover{
-    filter:brightness(1.05);
-  }
+    .value-item h3{
+      margin:4px 0 6px;
+      font-size:17px;
+      color:#1e3a8a;
+      text-align:center;
+    }
 
-  /* contenitore delle card (kpi) nelle varie sezioni
-     uso flex per non dover gestire colonne fisse: si adatta da solo */
-  .cards{
-    display:flex;
-    flex-wrap:wrap;   /* quando finisce lo spazio le card vanno semplicemente sulla riga sotto */
-    gap:14px;
-  }
+    .value-item p{
+      font-size:16px;
+      margin:2px 0;
+      color:#4b5563;
+    }
 
-  /* ogni card è un box bianco con bordo leggero e angoli arrotondati */
-  .card{
-    flex:1 1 250px;         /* larghezza minima 250px, il resto si adatta */
-    background:#ffffff;
-    border:1px solid #e2e8f0;
-    border-radius:10px;
-    padding:12px;
-  }
+    /* impostazioni generali per le sezioni della pagina
+       in questo modo ogni blocco ha un po' di respiro sopra e sotto */
+    section{
+      padding:10px 0;
+    }
 
-  /* box interno con numero e descrizione del kpi */
-  .kpi{
-    background:#f8fafc;
-    border:1px dashed #e2e8f0;
-    border-radius:8px;
-    padding:8px;
-    margin-bottom:8px;
-  }
+    /* titoli principali delle sezioni (Persone, Ambiente, ecc.)
+       la barra a sinistra aiuta a capire il cambio di argomento */
+    h2{
+      font-size:20px;
+      margin:0 0 8px;
+      padding-left:8px;
+      border-left:5px solid #1e3a8a;
+      color:#1e3a8a;
+    }
 
-  /* valore numerico in evidenza */
-  .kpi-value{
-    font-size:18px;
-    font-weight:bold;
-    color:#1e3a8a;
-  }
+    /* titoli delle card interne */
+    h3{
+      margin-top:0;
+      font-size:17px;
+    }
 
-  /* etichetta del kpi */
-  .kpi-label{
-    font-size:12px;
-    color:#4b5563;
-    margin-bottom:6px;
-  }
+    /* stile del pulsante finale per aprire il pdf del bilancio, bordo e sfondo rossi per restare sul colore lavazza */
+    .btn{
+      padding:10px 14px;
+      border-radius:10px;
+      border:1px solid #b40020;
+      background:#b40020;
+      color:#ffffff;
+      font-size:17px;
+      font-weight:bold;
+    }
 
-  /* barretta grafica sotto al kpi */
-  .progress{
-    height:8px;
-    background:#e2e8f0;
-    border-radius:4px;
-    overflow:hidden;
-  }
+    /* piccola variazione di luminosità al passaggio del mouse */
+    .btn:hover{
+      filter:brightness(1.05);
+    }
 
-  /* barra colorata che riempie la progress */
-  .progress-bar{
-    height:8px;
-    background:#1e3a8a;
-  }
+    /* contenitore delle card (kpi) nelle varie sezioni
+       uso flex per non dover gestire colonne fisse: si adatta da solo */
+    .cards{
+      display:flex;
+      flex-wrap:wrap;   /* quando finisce lo spazio le card vanno semplicemente sulla riga sotto */
+      gap:14px;
+    }
 
-  /* riga con titolo di sezione e icone SDG affiancate
-     qui faccio capire subito a quali obiettivi ONU si collega ogni blocco */
-  .section-heading{
-    display:flex;
-    align-items:center; /* centro verticalmente il testo e le icone SDG */
-    gap:8px;
-    margin:0 0 10px;
-  }
+    /* ogni card è un box bianco con bordo leggero e angoli arrotondati */
+    .card{
+      flex:1 1 250px;         /* larghezza minima 250px, il resto si adatta */
+      background:#ffffff;
+      border:1px solid #e2e8f0;
+      border-radius:10px;
+      padding:12px;
+    }
 
-  .section-heading h2{
-    margin:0;
-  }
+    /* box interno con numero e descrizione del kpi */
+    .kpi{
+      background:#f8fafc;
+      border:1px dashed #e2e8f0;
+      border-radius:8px;
+      padding:8px;
+      margin-bottom:8px;
+    }
 
-  .sdg-icon{
-    width:50px;
-    height:auto;
-  }
+    /* valore numerico in evidenza */
+    .kpi-value{
+      font-size:17px;
+      font-weight:bold;
+      color:#1e3a8a;
+    }
 
-  /* qui cambio i colori in base all’area (persone, crescita, ambiente, comunità)
-     per dare subito l’idea che sono blocchi diversi */
+    /* etichetta del kpi */
+    .kpi-label{
+      font-size:16px;
+      color:#4b5563;
+      margin-bottom:6px;
+    }
 
-  .section-persone h2{
-    border-left-color:#a0622a;
-    color:#a0622a;
-  }
-  .section-persone .card{
-    background:#f8efe6;
-    border-color:#f0d5b2;
-  }
-  .section-persone .kpi{
-    border-color:#f0d5b2;
-    background:#ffffff;
-  }
-  .section-persone .kpi-value{
-    color:#a0622a;
-  }
-  .section-persone .progress-bar{
-    background:#c97b34;
-  }
+    /* barretta grafica sotto al kpi */
+    .progress{
+      height:8px;
+      background:#e2e8f0;
+      border-radius:4px;
+      overflow:hidden;
+    }
 
-  .section-crescita h2{
-    border-left-color:#1b6fb8;
-    color:#1b6fb8;
-  }
-  .section-crescita .card{
-    background:#e6f3ff;
-    border-color:#c5ddf5;
-  }
-  .section-crescita .kpi{
-    border-color:#c5ddf5;
-    background:#ffffff;
-  }
-  .section-crescita .kpi-value{
-    color:#1b6fb8;
-  }
-  .section-crescita .progress-bar{
-    background:#1b6fb8;
-  }
+    /* barra colorata che riempie la progress */
+    .progress-bar{
+      height:8px;
+      background:#1e3a8a;
+    }
 
-  .section-ambiente h2{
-    border-left-color:#2f7d3b;
-    color:#2f7d3b;
-  }
-  .section-ambiente .card{
-    background:#e7f5ec;
-    border-color:#c3e2cf;
-  }
-  .section-ambiente .kpi{
-    border-color:#c3e2cf;
-    background:#ffffff;
-  }
-  .section-ambiente .kpi-value{
-    color:#2f7d3b;
-  }
-  .section-ambiente .progress-bar{
-    background:#2f7d3b;
-  }
+    /* riga con titolo di sezione e icone SDG affiancate
+       qui faccio capire subito a quali obiettivi ONU si collega ogni blocco */
+    .section-heading{
+      display:flex;
+      align-items:center; /* centro verticalmente il testo e le icone SDG */
+      gap:8px;
+      margin:0 0 10px;
+    }
 
-  .section-comunita h2{
-    border-left-color:#d4a017;
-    color:#d4a017;
-  }
-  .section-comunita .card{
-    background:#fff9db;
-    border-color:#f5e6a3;
-  }
-  .section-comunita .kpi{
-    border-color:#f5e6a3;
-    background:#ffffff;
-  }
-  .section-comunita .kpi-value{
-    color:#d4a017;
-  }
-  .section-comunita .progress-bar{
-    background:#facc15;
-  }
+    .section-heading h2{
+      margin:0;
+    }
 
-  /* immagine con i brand Lavazza in fondo alla pagina
-     mi serve per chiudere il sito ricordando tutte le marche del Gruppo */
-  .brands-strip{
-    width:100%;
-    max-width:320px;
-    display:block;
-    margin:20px auto;
-    border-radius:12px;
-  }
+    .sdg-icon{
+      width:50px;
+      height:auto;
+    }
+
+    /* qui cambio i colori in base all’area (persone, crescita, ambiente, comunità)
+       per dare subito l’idea che sono blocchi diversi */
+
+    .section-persone h2{
+      border-left-color:#a0622a;
+      color:#a0622a;
+    }
+    .section-persone .card{
+      background:#f8efe6;
+      border-color:#f0d5b2;
+    }
+    .section-persone .kpi{
+      border-color:#f0d5b2;
+      background:#ffffff;
+    }
+    .section-persone .kpi-value{
+      color:#a0622a;
+    }
+    .section-persone .progress-bar{
+      background:#c97b34;
+    }
+
+    .section-crescita h2{
+      border-left-color:#1b6fb8;
+      color:#1b6fb8;
+    }
+    .section-crescita .card{
+      background:#e6f3ff;
+      border-color:#c5ddf5;
+    }
+    .section-crescita .kpi{
+      border-color:#c5ddf5;
+      background:#ffffff;
+    }
+    .section-crescita .kpi-value{
+      color:#1b6fb8;
+    }
+    .section-crescita .progress-bar{
+      background:#1b6fb8;
+    }
+
+    .section-ambiente h2{
+      border-left-color:#2f7d3b;
+      color:#2f7d3b;
+    }
+    .section-ambiente .card{
+      background:#e7f5ec;
+      border-color:#c3e2cf;
+    }
+    .section-ambiente .kpi{
+      border-color:#c3e2cf;
+      background:#ffffff;
+    }
+    .section-ambiente .kpi-value{
+      color:#2f7d3b;
+    }
+    .section-ambiente .progress-bar{
+      background:#2f7d3b;
+    }
+
+    .section-comunita h2{
+      border-left-color:#d4a017;
+      color:#d4a017;
+    }
+    .section-comunita .card{
+      background:#fff9db;
+      border-color:#f5e6a3;
+    }
+    .section-comunita .kpi{
+      border-color:#f5e6a3;
+      background:#ffffff;
+    }
+    .section-comunita .kpi-value{
+      color:#d4a017;
+    }
+    .section-comunita .progress-bar{
+      background:#facc15;
+    }
+
+    /* immagine con i brand Lavazza in fondo alla pagina
+       mi serve per chiudere il sito ricordando tutte le marche del Gruppo */
+    .brands-strip{
+      width:100%;
+      max-width:320px;
+      display:block;
+      margin:20px auto;
+      border-radius:12px;
+    }
+
+    /* stile condiviso per i titoletti cliccabili (strategia + valori) */
+    .goal-strategy-title a,
+    .values-title a{
+      display:inline-block;
+      padding:8px 18px;
+      border-radius:999px;
+      border:1px solid #e2e8f0;
+      background:#ffffffee;
+      color:#1e3a8a;
+      font-size:17px;
+      font-weight:bold;
+      text-decoration:underline;
+      transition:
+        background 0.12s ease,
+        box-shadow 0.12s ease,
+        transform 0.12s ease,
+        text-decoration 0.12s ease;
+    }
+
+    /* al passaggio del mouse tolgo un attimo la riga e cambio lo sfondo
+       così si capisce che è cliccabile */
+    .goal-strategy-title a:hover,
+    .values-title a:hover{
+      text-decoration:none;
+      background:#e5edff;
+      box-shadow:0 2px 6px rgba(15,23,42,0.18);
+      transform:translateY(-1px);
+      cursor:pointer;
+    }
 
   </style>
 </head>
@@ -456,16 +508,22 @@
 
         <p>Lavazza opera in una delle filiere agricole più ampie e complesse al mondo, dove la produzione del caffè dipende dal lavoro di circa 25 milioni di piccoli produttori lungo la fascia equatoriale. Alla base ci sono soprattutto aziende familiari di piccole dimensioni, che lavorano in contesti spesso esposti agli effetti della crisi climatica e alle oscillazioni dei prezzi. Ogni fase, dalla coltivazione alla distribuzione, richiede competenze specifiche e un’attenzione costante alla qualità.</p>
         <p>Nel mondo vengono consumate ogni giorno circa 3,1 miliardi di tazzine di caffè. Non è solo un’abitudine radicata in molti Paesi, ma un fenomeno che muove intere filiere e coinvolge milioni di persone. Questo dato rende bene l’idea del peso culturale ed economico del caffè e della responsabilità che ricade sui principali torrefattori rispetto alle scelte che compiono lungo la catena del valore.</p>
-        <p>Nato a Torino nel 1895, il Gruppo è cresciuto da impresa familiare a realtà internazionale, presente in oltre 140 Paesi con stabilimenti produttivi in Italia, Francia, Regno Unito, Stati Uniti e Canada. Nel tempo sono cambiati mercati e tecnologie, ma è rimasto centrale l’obiettivo di unire qualità del prodotto, innovazione e rispetto per le persone, l’ambiente e le comunità in cui l’azienda è presente. Questo approccio è riassunto nello scopo “Awakening a better world every morning”.</p>
+        <p>Nato a Torino nel 1895, il Gruppo è cresciuto da impresa familiare a realtà internazionale, presente in oltre 140 Paesi con stabilimenti produttivi in Italia, Francia, Regno Unito, Stati Uniti e Canada. Nel tempo sono cambiati mercati e tecnologie, ma è rimasto centrale l’obiettivo di unire qualità del prodotto, innovazione e rispetto per le persone, l’ambiente e le comunità in cui l’azienda è presente. Questo approccio è riassunto nello scopo
+          <a class="inline-link"
+             href="https://www.lavazza.it/it/lavazza-world/company/lavazza-group?referrer=https://www.google.com/"
+             target="_blank" rel="noopener">
+            “Awakening a better world every morning”
+          </a>.
+        </p>
         <p>Su questa base è stata costruita la strategia di sostenibilità “A Goal in Every Cup”, che mette in relazione il caffè con gli Obiettivi di sviluppo sostenibile (SDG – Sustainable Development Goals) delle Nazioni Unite. Nel lavoro di analisi sono stati messi soprattutto al centro quattro temi: l’uguaglianza di genere, il lavoro dignitoso e la crescita economica, il consumo e la produzione responsabili e l’azione per il clima. In altre parole, l’attenzione si concentra su ciò che succede alle persone nella filiera, su come viene creato il valore, su come si producono e si consumano i prodotti e su come si affronta il cambiamento climatico; questi temi corrispondono agli SDG 5, 8, 12 e 13 dell’Agenda 2030. A questi si aggiunge l’SDG 17 “Partnership per gli obiettivi”, usato come “Tool Goal”, cioè come base per costruire progetti e iniziative in collaborazione con altri soggetti. Accanto a questi elementi è stato sviluppato “Goal Zero”, un percorso di sensibilizzazione dedicato ai Global Goals, pensato per far conoscere meglio l’Agenda 2030 e per individuare, insieme agli stakeholder interni ed esterni, quali obiettivi risultano più rilevanti per il Gruppo. Questa pagina raccoglie alcuni numeri chiave del 2024 su persone, crescita responsabile, ambiente e comunità locali e vuole essere un primo passaggio verso il Bilancio di Sostenibilità completo.</p>
-
-
-
 
         <!-- breve blocco riassuntivo sulla strategia e sugli strumenti usati -->
         <div class="goal-strategy">
           <div class="goal-strategy-title">
-            La strategia di sostenibilità
+            <a href="https://www.lavazzagroup.com/it/la-sostenibilita.html"
+               target="_blank" rel="noopener">
+              La strategia di sostenibilità
+            </a>
           </div>
 
           <div class="goal-icons-row">
@@ -494,7 +552,13 @@
 
       <!-- sezione con i valori aziendali principali -->
       <section class="values">
-        <h2>Valori</h2>
+        <h2 class="values-title">
+          <a href="https://www.lavazzagroup.com/it/chi-siamo/purpose-valori.html"
+             target="_blank" rel="noopener">
+            Valori
+          </a>
+        </h2>
+
         <div class="values-row">
           <div class="value-item">
             <img src="Authenticity.png" alt="Authenticity">
